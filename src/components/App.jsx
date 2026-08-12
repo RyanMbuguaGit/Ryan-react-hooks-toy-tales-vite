@@ -22,6 +22,12 @@ function App() {
     setToys((toys) => [...toys, newToy]);
   }
 
+  function handleUpdateToy(updatedToy) {
+    setToys((toys) =>
+      toys.map((toy) => (toy.id === updatedToy.id ? updatedToy : toy))
+    );
+  }
+
   return (
     <>
       <Header />
@@ -29,7 +35,7 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer toys={toys} />
+      <ToyContainer toys={toys} onUpdateToy={handleUpdateToy} />
     </>
   );
 }
