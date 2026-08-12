@@ -28,6 +28,10 @@ function App() {
     );
   }
 
+  function handleDeleteToy(id) {
+    setToys((toys) => toys.filter((toy) => toy.id !== id));
+  }
+
   return (
     <>
       <Header />
@@ -35,7 +39,11 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer toys={toys} onUpdateToy={handleUpdateToy} />
+      <ToyContainer
+        toys={toys}
+        onUpdateToy={handleUpdateToy}
+        onDeleteToy={handleDeleteToy}
+      />
     </>
   );
 }
