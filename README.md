@@ -42,3 +42,17 @@ be stored.
   should be sent in the body of the PATCH request, as a object:
   `{ likes: 10 }`), to update the toy on the server. Clicking on the button
   should also increase the number of likes on the DOM.
+
+## Implementation notes
+
+All four deliverables above are complete:
+
+- **GET** — `App` fetches `/toys` on mount with `useEffect` and stores the result in state, then passes it down to `ToyContainer` → `ToyCard`.
+- **POST** — `ToyForm` is a controlled form; on submit it POSTs the new toy, then calls `onAddToy` (passed down from `App`) to add it to state so a new `ToyCard` renders.
+- **PATCH** — `ToyCard`'s like button PATCHes the updated like count, then calls `onUpdateToy` to update that toy in `App`'s state.
+- **DELETE** — `ToyCard`'s donate button DELETEs the toy, then calls `onDeleteToy` to remove it from `App`'s state.
+
+## Screenshot
+
+<!-- Add a screenshot of the running app here -->
+![Toy Tales screenshot](./screenshot.png)
